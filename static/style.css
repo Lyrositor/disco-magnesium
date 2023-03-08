@@ -1,0 +1,324 @@
+:root {
+    --background-color: #252522;
+    --overlay-background-color: #3f3e3a;
+    --conversation-color: #313133;
+    --header-color: #ffffff;
+    --text-color: #cfd5bf;
+    --list-item-color: #ffffff;
+    --link-color: #bc4827;
+    --link-hover-color: #ffffff;
+    --button-background-color: #882410;
+    --button-color: #ffffff;
+    --input-background-color: #595959;
+    --difficulty-red-color: #5f3824;
+    --difficulty-red-background-color: #dc5130;
+    --difficulty-white-color: #292929;
+    --difficulty-white-background-color: #cbc5b7;
+    --difficulty-white-hover-background-color: #857f70;
+    --difficulty-white-hover-color: #ffffff;
+    --difficulty-white-condition-background-color: #b9b1a2;
+    --cost-background-color: #c78d14;
+    --cost-color: #2e1f01;
+    --cost-hover-color: #e5e4cb;
+    --cost-price-color: #ddd4a7;
+    --cost-condition-background-color: #b3811a;
+    --check-result-color: #857f70;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    line-height: 140%;
+}
+
+a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+h1 {
+    color: var(--header-color);
+    margin: 1em 0 1.5em;
+    text-align: center;
+}
+
+h1 a {
+    color: var(--header-color);
+}
+
+h2 {
+    color: var(--header-color);
+    margin: 1em 0 .5em;
+}
+
+#container {
+    background-color: var(--conversation-color);
+    box-sizing: border-box;
+    color: var(--text-color);
+    flex-grow: 1;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 1em 2em;
+    position: relative;
+    width: 100%;
+}
+
+#actions {
+    text-align: right;
+    padding: .5em 0;
+    pointer-events: none;
+    position: sticky;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.action {
+    font-size: 1em;
+    margin: 0.5em;
+    pointer-events: all;
+    user-select: none;
+}
+
+.action:hover {
+    color: var(--link-hover-color);
+}
+
+#state-overlay {
+    background-color: var(--overlay-background-color);
+    left: 0;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.author {
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: -1em;
+    text-transform: uppercase;
+}
+
+.color-2, .color-intellect {
+    color: #69c0c7;
+}
+
+.color-3, .color-psyche {
+    color: #7556cf;
+}
+
+.color-4, .color-physique {
+    color: #cb476a;
+}
+
+.color-5, .color-motorics {
+    color: #e3b734;
+}
+
+#dialogue-browser {
+    padding-bottom: 2em;
+}
+
+#conversation p {
+    margin-left: 1em;
+    opacity: 0.7;
+}
+
+#conversation p:last-of-type {
+    opacity: 1;
+}
+
+.options {
+    padding-left: 1.5em;
+}
+
+.options li {
+    color: var(--list-item-color);
+    margin-bottom: .1em;
+    position: relative;
+}
+
+.options li > a {
+    border-top-left-radius: .2em;
+    border-bottom-right-radius: .2em;
+    position: relative;
+}
+
+.options li > a:before {
+    color: var(--text-color);
+    content: '- ';
+}
+
+.options .option-red, .options .option-white, .options .option-cost {
+    display: block;
+    padding: .5em;
+}
+
+.options .option-red, .options .option-white {
+    font-weight: bold;
+}
+
+.options .option-red {
+    background-color: var(--difficulty-red-background-color);
+    color: var(--difficulty-red-color);
+}
+
+.options .option-red:hover {
+    color: var(--link-hover-color);
+}
+
+.options .option-white {
+    background-color: var(--difficulty-white-background-color);
+    color: var(--difficulty-white-color);
+}
+
+.options .option-white:hover {
+    background-color: var(--difficulty-white-hover-background-color);
+    color: var(--difficulty-white-hover-color);
+}
+
+.options .option-white .condition {
+    background: var(--difficulty-white-condition-background-color);
+    color: var(--difficulty-white-color);
+}
+
+.options .option-cost {
+    background-color: var(--cost-background-color);
+    color: var(--cost-color);
+}
+
+.options .option-cost:hover {
+    color: var(--cost-hover-color);
+}
+
+.options .option-cost .price {
+    color: var(--cost-price-color);
+}
+
+.options .option-cost .condition {
+    background: var(--cost-condition-background-color);
+    color: var(--cost-color);
+}
+
+.options li a:hover .option-skill {
+    color: var(--link-hover-color) !important
+}
+
+.option-skill {
+    margin: .3em;
+}
+
+.currency {
+    color: #000000;
+}
+
+.check-result {
+    color: var(--check-result-color);
+}
+
+.condition {
+    background: var(--overlay-background-color);
+    color: var(--text-color);
+    display: inline-block;
+    font-family: monospace;
+    margin: .3em 0;
+    padding: .2em;
+}
+
+#continue-button {
+    background-color: var(--button-background-color);
+    color: var(--button-color);
+    display: block;
+    font-size: 2em;
+    padding: .6em .5em .3em;
+    text-transform: uppercase;
+}
+
+#continue-text:after {
+    content: "▶";
+    display: inline-block;
+    margin-left: .5em;
+    transform: scale(1, 0.5);
+}
+
+#continue-text.end:after {
+    background-color: var(--button-color);
+    content: " ";
+    height: .8em;
+    transform: scale(1, 1);
+    width: .8em;
+}
+
+input[type=number], input[type=number]:focus {
+    background: var(--input-background-color);
+    border: none;
+    color: var(--text-color);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 18px;
+    outline: none;
+    padding-left: .4em;
+    text-align: left;
+    width: 4em;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--input-background-color);
+    border: none;
+    cursor: pointer;
+    height: 1.6em;
+    margin: 0;
+    width: 1.6em;
+}
+
+input[type=checkbox]:checked {
+    background: var(--link-hover-color);
+    border: solid 0.4em var(--input-background-color);
+    height: 1.6em;
+    width: 1.6em;
+}
+
+.state-property {
+    margin-bottom: .5em;
+}
+
+.variable-label {
+    font-family: monospace;
+    overflow-wrap: anywhere;
+}
+
+.roll {
+    background-color: #54514c;
+    border-top-left-radius: .2em;
+    border-bottom-right-radius: .2em;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: .5em 1em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+}
+
+.roll a {
+    margin: 0 1em;
+}

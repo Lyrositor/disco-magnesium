@@ -1,0 +1,12 @@
+[Unit]
+Description=A Python web app for browsing Disco Elysium conversations in a similar fashion to playing the game.
+
+[Service]
+User=disco_magnesium
+WorkingDirectory=/home/disco_magnesium/
+ExecStart=/home/disco_magnesium/.local/bin/poetry run gunicorn
+EnvironmentFile=/home/disco_magnesium/.env
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

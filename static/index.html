@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Disco Magnesium">
+    <meta property="og:description" content="Mag-choked hallucinations of what was and what could have been.">
+    <meta name="twitter:title" content="Disco Magnesium">
+    <meta name="twitter:description" content="Mag-choked hallucinations of what was and what could have been.">
+    <title>Disco Magnesium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <main id="container">
+      <div id="actions" style="display: none;">
+        <a class="action" id="save">save</a>
+        <a class="action" id="load">load</a>
+        <a class="action" id="state-toggle">edit</a>
+      </div>
+      <div id="state-overlay" style="display: none;">
+        <div class="state-property"><label for="show_all">Show All Dialogue Nodes: </label><input type="checkbox" id="show_all" /></div>
+        <div class="state-property"><label for="show_conditions">Show Conditions: </label><input type="checkbox" id="show_conditions" /></div>
+
+        <h2>Environment</h2>
+        <div class="state-property"><label for="day">Day: </label><input type="number" id="day" min="1" value="1" /></div>
+        <div class="state-property"><label for="time">Hour: </label><input type="number" id="time" min="0" max="23" value="0" /></div>
+        <div class="state-property"><label for="is_kim_here">Is Kim Here?</label> <input type="checkbox" id="is_kim_here" /></div>
+        <div class="state-property"><label for="is_cuno_in_party">Is Cuno in Party?</label> <input type="checkbox" id="is_cuno_in_party" /></div>
+        <div class="state-property"><label for="is_raining">Is Raining?</label> <input type="checkbox" id="is_raining" /></div>
+        <div class="state-property"><label for="is_snowing">Is Snowing?</label> <input type="checkbox" id="is_snowing" /></div>
+        <div class="state-property"><label for="is_hardcore">Is in Hardcore Mode?</label> <input type="checkbox" id="is_hardcore" /></div>
+        <div class="state-property"><label for="has_beaten_hardcore">Has Beaten Hardcore Mode?</label> <input type="checkbox" id="has_beaten_hardcore" /></div>
+
+        <h2>Attributes</h2>
+        <div class="state-property"><label for="damage_health">Damage (Health): </label><input type="number" id="damage_health" min="0" value="0" /></div>
+        <div class="state-property"><label for="damage_morale">Damage (Morale): </label><input type="number" id="damage_morale" min="0" value="0" /></div>
+
+        <div class="state-property"><label class="color-2" for="skill-logic">Logic: </label><input type="number" id="skill-logic" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-2" for="skill-encyclopedia">Encyclopedia: </label><input type="number" id="skill-encyclopedia" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-2" for="skill-rhetoric">Rhetoric: </label><input type="number" id="skill-rhetoric" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-2" for="skill-drama">Drama: </label><input type="number" id="skill-drama" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-2" for="skill-conceptualization">Conceptualization: </label><input type="number" id="skill-conceptualization" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-2" for="skill-visualcalculus">Visual Calculus: </label><input type="number" id="skill-visualcalculus" min="0" value="0" /></div>
+
+        <div class="state-property"><label class="color-3" for="skill-volition">Volition: </label><input type="number" id="skill-volition" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-3" for="skill-inlandempire">Inland Empire: </label><input type="number" id="skill-inlandempire" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-3" for="skill-empathy">Empathy: </label><input type="number" id="skill-empathy" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-3" for="skill-authority">Authority: </label><input type="number" id="skill-authority" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-3" for="skill-espritdecorps">Esprit de Corps: </label><input type="number" id="skill-espritdecorps" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-3" for="skill-suggestion">Suggestion: </label><input type="number" id="skill-suggestion" min="0" value="0" /></div>
+
+        <div class="state-property"><label class="color-4" for="skill-endurance">Endurance: </label><input type="number" id="skill-endurance" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-4" for="skill-painthreshold">Pain Threshold: </label><input type="number" id="skill-painthreshold" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-4" for="skill-physicalinstrument">Physical Instrument: </label><input type="number" id="skill-physicalinstrument" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-4" for="skill-electrochemistry">Electrochemistry: </label><input type="number" id="skill-electrochemistry" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-4" for="skill-shivers">Shivers: </label><input type="number" id="skill-shivers" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-4" for="skill-halflight">Half Light: </label><input type="number" id="skill-halflight" min="0" value="0" /></div>
+
+        <div class="state-property"><label class="color-5" for="skill-handeyecoordination">Hand/Eye Coordination: </label><input type="number" id="skill-handeyecoordination" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-5" for="skill-perception">Perception: </label><input type="number" id="skill-perception" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-5" for="skill-reactionspeed">Reaction Speed: </label><input type="number" id="skill-reactionspeed" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-5" for="skill-savoirfaire">Savoir Faire: </label><input type="number" id="skill-savoirfaire" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-5" for="skill-interfacing">Interfacing: </label><input type="number" id="skill-interfacing" min="0" value="0" /></div>
+        <div class="state-property"><label class="color-5" for="skill-composure">Composure: </label><input type="number" id="skill-composure" min="0" value="0" /></div>
+
+
+        <h2>Inventory</h2>
+        <div class="state-property"><label for="money">Money: ✤</label><input type="number" id="money" min="0" value="0" /></div>
+        <table id="items">
+          <thead>
+          <tr><th>Name</th><th>Owned</th><th>Equipped</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <!--<h2>Variables</h2>
+        <div id="variables"></div>-->
+      </div>
+      <h1><a href="#/">Disco Magnesium</a></h1>
+
+
+
+      <div id="loading"><em>Loading...</em></div>
+
+      <div id="dialogue-browser" style="display: none;">
+        <div id="conversation"><em>Loading...</em></div>
+        <ol id="options" class="options"></ol>
+        <a id="continue-button" href="#/" style="display: none;">
+          <span id="continue-text">Continue</span><span id="end-button-square"></span>
+        </a>
+      </div>
+
+      <div id="root" style="display: none;">
+        <p><strong>Disco Magnesium</strong> is an online conversation browser for the game <em>Disco Elysium</em>, developed by Lyrositor.</p>
+        <p>Choose a conversation from the below list to start browsing. Use the "edit" button to the top-right to customize the in-game state.</p>
+        <p><strong>Legal:</strong> <em>Disco Elysium</em> is the sole property of ZA/UM. This tool uses conversation data from the game, as well as the in-game icon for magnesium.</p>
+        <p><strong>Source Code:</strong> <a href="https://github.com/Lyrositor/disco-magnesium">Lyrositor/disco-magnesium</a></p>
+
+        <h2>Exchanges</h2>
+        <ol id="list-exchanges" class="options"></ol>
+        <h2>Thoughts</h2>
+        <ol id="list-thoughts" class="options"></ol>
+        <h2>Orbs</h2>
+        <ol id="list-orbs" class="options"></ol>
+        <h2>Barks</h2>
+        <ol id="list-barks" class="options"></ol>
+      </div>
+    </main>
+	  <script src="script.js"></script>
+  </body>
+</html>
