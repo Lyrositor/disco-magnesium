@@ -1,14 +1,7 @@
 # Disco Magnesium
 
-<div style="display: flex; flex-direction: row; border-left: solid 5px; margin: 1em;">
-<div style="padding: 0 1em; font-weight: bold;">
-DISCO ELYSIUM CONVERSATION REPLAYER
-</div>
-<div style="padding: 0 1em;">
-+2 <span style="color: #69c0c7;">Encylopedia</span>: A great democracy of creatures<br />
-+2 <span style="color: #8067c2;">Volition</span>: Good morning, Elysium
-</div> 
-</div>
+**+2 Encyclopedia:** A great democracy of creatures<br />
+**+2 Volition:** Good morning, Elysium
 
 **Disco Magnesium** is a Python web app for browsing Disco Elysium conversations in a similar fashion to playing the game.
 
